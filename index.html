@@ -22,10 +22,17 @@
     <meta name="robots" content="index,follow" />
     <meta name="revisit-after" content="120 days">
     <meta name="language" content="English">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"> -->
-    
+
+    <!-- replace x.x.x with actual version -->
+    <script src="https://unpkg.com/@codersrank/activity@x.x.x/codersrank-activity.min.js"></script>
+    <!-- replace x.x.x with actual version -->
+    <script src="https://unpkg.com/@codersrank/summary@x.x.x/codersrank-summary.min.js"></script>
+    <!-- replace x.x.x with actual version -->
+    <script src="https://unpkg.com/@codersrank/skills-chart@x.x.x/codersrank-skills-chart.min.js"></script>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
     <link href="css/aos.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -60,9 +67,9 @@
       <div class="page-header-image" data-parallax="true" style="background-image: url('images/cc-bg-1.jpg');"></div>
       <div class="container">
         <div class="content-center">
-          <div class="cc-profile-image"><a href="#"><img src="./images/lreb.jpg" alt="Image"/></a></div>
+          <div class="cc-profile-image"><a href="#"><img src="./images/me.jpg" alt="Image"/></a></div>
           <div class="h2 title">Luis Raúl Espinoza Barboza</div>
-          <p class="category text-white">Web Developer, Software Developer</p>
+          <p class="category text-white">Software Engineer | Cloud Developer | Software Designer | Analyst | Developer By Hobbie | Entrepreneur | Freelancer | Founder</p>
           <!-- <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a>
           <a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a> -->
         </div>
@@ -126,6 +133,22 @@
     </div>
   </div>
 </div>
+
+<div class="section" id="skill">
+  <div class="container">
+    <div class="h4 text-center mb-4 title">Github Activity</div>
+      <codersrank-activity username="lreb" labels legend tooltip setp="10" weeks="52"></codersrank-activity>
+
+      <codersrank-summary username="lreb" ></codersrank-summary>
+
+      <codersrank-skills-chart username="lreb"
+        labels
+        legend
+        tooltip
+      ></codersrank-skills-chart>
+  </div>
+</div>
+
 <div class="section" id="skill">
   <div class="container">
     <div class="h4 text-center mb-4 title">Professional Skills</div>
@@ -415,11 +438,68 @@
 <div class="section" id="experience">
   <div class="container cc-experience">
     <div class="h4 text-center mb-4 title">Work Experience</div>
+
     <div class="card">
       <div class="row">
         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
           <div class="card-body cc-experience-header">
-            <p>June 2018 - Present</p>
+            <p>October 2021 - Present </p>
+            <div class="h5">JABIL Circuit</div>
+          </div>
+        </div>
+        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body">
+            <div class="h5">Information Technology Technical Lead</div>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="row">
+        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body cc-experience-header">
+            <p>May 2021 - October 2021</p>
+            <div class="h5">3Pillar Global</div>
+          </div>
+        </div>
+        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body">
+            <div class="h5">Programmer Analyst I</div>
+            <p>Providing support to develop software, design solutions, and integrations regarding the client's needs, working with .Net Core, Azure Cloud Services.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="row">
+        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body cc-experience-header">
+            <p>December 2020 - May 2021 </p>
+            <div class="h5">Tiempo Development</div>
+          </div>
+        </div>
+        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body">
+            <div class="h5">Programmer Analyst I</div>
+            <p>I joined to conform a new development team extension from a customer in Canada, Working with .NET stack technology as Net Core, Net Framework, MSSQL, Azure DevOps and Cloud Services, Angular with Typescript.</p>
+            <p>Always looking for the opportunity to enhance the current process and best practices in the use of technology to achieve customer goals.</p>
+            <p>Achievements gained: are the enhance the performance in several critical processes for the client, the inclusion of new tools (Use of retrospective in DevOps), and best practices (Use of Dependency Injection in several process).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="row">
+        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body cc-experience-header">
+            <p>June 2018 - December 2020 </p>
             <div class="h5">JABIL Circuit</div>
           </div>
         </div>

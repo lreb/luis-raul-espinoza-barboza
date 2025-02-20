@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   },
                 },
               },
-              labels: ["85%"],
+              labels: ["90%"],
               grid: {
                 padding: {
                   top: -16,

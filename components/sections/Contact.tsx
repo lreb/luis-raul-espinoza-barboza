@@ -7,9 +7,22 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useState } from 'react';
 
+const serviceOptions = [
+  'Web Development',
+  'Mobile Development',
+  'Cloud & DevOps',
+  'API & Microservices',
+  'IT Consulting',
+  'System Architecture',
+  'Legacy Modernization',
+  'Other',
+];
+
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
+  phone: z.string().optional(),
+  service: z.string().min(1, 'Please select a service'),
   subject: z.string().min(5, 'Subject must be at least 5 characters'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
@@ -20,20 +33,20 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'your.email@example.com',
-    href: 'mailto:your.email@example.com',
+    value: 'luis.espinoza@facware.com',
+    href: 'mailto:luis.espinoza@facware.com',
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
+    value: '+52 (614) 254-2471',
+    href: 'tel:+526142542471',
   },
   {
     icon: MapPin,
     label: 'Location',
-    value: 'San Francisco, CA',
-    href: null,
+    value: 'Chihuahua, Chihuahua, México',
+    href: 'https://www.google.com.mx/maps/place/Chihuahua/@28.6457487,-108.8317366,851247m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8696752f8591a409:0x9b83e25340a77e07!8m2!3d28.4854458!4d-105.7820674!16zL20vMDE4M3oy?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D',
   },
 ];
 
@@ -55,14 +68,23 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '63d81c5d-43bf-4748-83db-678aab892576',
+          ...data,
+        }),
+      });
 
-      // TODO: Replace with actual API endpoint
-      console.log('Form data:', data);
+      const result = await response.json();
 
-      setSubmitStatus('success');
-      reset();
+      if (result.success) {
+        setSubmitStatus('success');
+        reset();
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -182,6 +204,43 @@ export default function Contact() {
                 />
                 {errors.email && (
                   <p className="text-error text-sm mt-1">{errors.email.message}</p>
+                )}
+              </div>
+
+              {/* Phone Field */}
+              <div>
+                <label htmlFor="phone" className="block text-neutral-700 font-medium mb-2">
+                  Phone
+                </label>
+                <input
+                  {...register('phone')}
+                  type="tel"
+                  id="phone"
+                  className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                  placeholder="+1 (555) 123-4567"
+                />
+              </div>
+
+              {/* Service Type Field */}
+              <div>
+                <label htmlFor="service" className="block text-neutral-700 font-medium mb-2">
+                  IT Service *
+                </label>
+                <select
+                  {...register('service')}
+                  id="service"
+                  className={`w-full px-4 py-3 rounded-lg border ${
+                    errors.service ? 'border-error' : 'border-neutral-200'
+                  } focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all bg-white`}
+                  defaultValue=""
+                >
+                  <option value="" disabled>Select a service</option>
+                  {serviceOptions.map((service) => (
+                    <option key={service} value={service}>{service}</option>
+                  ))}
+                </select>
+                {errors.service && (
+                  <p className="text-error text-sm mt-1">{errors.service.message}</p>
                 )}
               </div>
 

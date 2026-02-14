@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Code2, Rocket, Users, Briefcase } from 'lucide-react';
 
 const stats = [
@@ -38,13 +39,15 @@ export default function About() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-48 h-48 mx-auto bg-neutral-200 rounded-full mb-4 flex items-center justify-center">
-                  <span className="text-6xl">👨‍💻</span>
-                </div>
-                <p className="text-neutral-600 text-sm">Add your professional photo here</p>
-              </div>
+            <div className="max-w-sm mx-auto rounded-2xl overflow-hidden">
+              <Image
+                src="/lreb_professional_profile.png"
+                alt="Luis Raul Espinoza Barboza"
+                width={500}
+                height={300}
+                className="w-full h-auto rounded-2xl"
+                priority
+              />
             </div>
           </motion.div>
 
